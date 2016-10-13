@@ -1,0 +1,27 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "LIRI is a Language Interpretation and Recognition Interface that takes in parameters through the commandline and gives you back data",
+  "main": "keys.js",
+  "dependencies": {
+    "request": "^2.75.0",
+    "twitter": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShannonGreen27/liri-node-app.git"
+  },
+  "keywords": [
+    "Liri"
+  ],
+  "author": "Shannon Green",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShannonGreen27/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/ShannonGreen27/liri-node-app#readme"
+}
