@@ -6,5 +6,3 @@ exports.twitterKeys = {
   access_token_key: '310320104-f3T82wIr96XaQDFEvk3rRtZTmOPlvoFRGaQrwSmr',
   access_token_secret: 'qF5inHvRmtybVl0jmsiQG7Vkepm1IL6Yo07qlxf5Yj0SQ',
 }
-
-
