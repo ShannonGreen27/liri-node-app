@@ -42,7 +42,7 @@ var mySpotify = function() {
 		}
 	}
 		
-	spotify.search({ type: 'track', query: songName || 'The+Sign' }, function(err, data) {
+	spotify.search({ type: 'track', query: songName || 'Ace of Base - The Sign' }, function(err, data) {
 	    if ( err ) {
 	        console.log('Error occurred: ' + err);
 	        return;
