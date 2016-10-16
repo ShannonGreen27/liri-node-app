@@ -16,6 +16,7 @@ var client = new Twitter({
   	access_token_secret: twitterKey.access_token_secret
 });
 
+// responsible for getting tweets and date created from the twitter api
 var myTwitter = function() {
 	var params = {screen_name: 'ShannonGreen4', count: 20};
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {
@@ -27,6 +28,7 @@ var myTwitter = function() {
 	});
 }
 
+// checks to see if the information being passed in is a single word or multiple words. If multiple words then makes it into a form that is easily understood by the api.
 var mySpotify = function() {
 
 	for (var i=3; i<nodeArgs.length; i++){
@@ -41,7 +43,7 @@ var mySpotify = function() {
 
 		}
 	}
-		
+// for query: || is used to set a default song name if no song is entered by the user
 	spotify.search({ type: 'track', query: songName || 'Ace of Base - The Sign' }, function(err, data) {
 	    if ( err ) {
 	        console.log('Error occurred: ' + err);
@@ -62,9 +64,7 @@ var mySpotify = function() {
 }
 
 
-// // Loop through all the words in the node argument
-// // And do a little for-loop magic to handle the inclusion of "+"s
-
+// checks to see if the information being passed in is a single word or multiple words. If multiple words then makes it into a form that is easily understood by the api.
 var myMovie = function() {
 	if (process.argv[3] == null) {
 
@@ -85,11 +85,8 @@ var myMovie = function() {
 		}
 	}
 
-	// Then run a request to the OMDB API with the movie specified 
+// Then run a request to the OMDB API with the movie specified 
 	var queryUrl = 'http://www.omdbapi.com/?t=' + movieName +'&y=&tomatoes=true&plot=short&r=json';
-
-	// This line is just to help us debug against the actual URL.  
-	console.log(queryUrl);
 
 	request(queryUrl, function (error, response, body) {
 
@@ -113,13 +110,14 @@ var myMovie = function() {
 	});
 }
 
-
+// gets command and search argument from a random.txt file and performs the stated operation
 var random = function() {
 
 	fs.readFile('random.txt', 'utf8', function(err, data) {
 		if (err) {
 			throw err;
 		}
+// changes the string from the random.txt into an array so that it can be utilized for the switch and spotify api.
 		var dataArray = data.split(",");
 		nodeArgs[2] = dataArray[0];
 		nodeArgs[3] = dataArray[1];
@@ -127,6 +125,7 @@ var random = function() {
 	})
 }
 
+// The magic maker. Ensures the appropriate function is called based on the command issued
 var command = function(nodeArgs) {
 	switch(nodeArgs){
 	    case 'my-tweets':
@@ -141,7 +140,7 @@ var command = function(nodeArgs) {
 	        myMovie();
 	    break;
 
-	    case 'do-what-this-says':
+	    case 'do-what-it-says':
 	        random();
 	    break;
 	}
